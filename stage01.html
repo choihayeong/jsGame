@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage01: ✊✌🖐</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Wallpoet&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header id="header" class="header">
+            <h1>js Game</h1>
+        </header>
+        <div class="content table">
+            <div class="">
+                <h2>Rock Scissors Paper</h2>
+                <div class="flex gameboard" style="font-size:36px;">
+                    <div id="front" class="front">
+                        <h3 class="gameboard__title">Front</h3>
+                        <span data-name>✊</span>
+                        <p class="front__result gameboard__result" data-front style="display:none">Front chooses undefined</p>
+                    </div>
+    
+                    vs
+    
+                    <div id="playerChoose" class="player-choose">
+                        <h3 class="gameboard__title">
+                            Player
+                            <span id="playerName" style="display:none">OOO</span>
+                        </h3>
+                        <div class="player-choose__buttons">
+                            <button type="button" class="player-choose__button" data-name="rock">✊</button>
+                            <button type="button" class="player-choose__button" data-name="scissors">✌</button>
+                            <button type="button" class="player-choose__button" data-name="paper">🖐</button>
+                        </div>
+                        <p class="player-choose__result gameboard__result" data-player style="display:none">You choose undefined</p>
+                    </div>
+                </div>
+    
+                <div id="playResult" class="play-result" style="display:none">
+                    <div class="play-result__inner">
+                        <div class="play-result__text">
+                            undefined
+                        </div> 
+                        <button type="button" class="btn btn--reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="popup">
+            <div class="popup__inner">
+                <h3>Player Name</h3>
+                <form id="playerForm" class="form">
+                    <input type="text" id="iptPlayer" class="ipt" autocomplete="off" required>
+                    <input type="submit" class="ipt ipt--submit" value="Submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/stage01.js"></script>
+</body>
+</html>

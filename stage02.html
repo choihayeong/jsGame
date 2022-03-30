@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage02: Searching for deifferent one</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Wallpoet&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header id="header" class="header">
+            <h1>js Game</h1>
+        </header>
+        <div class="content table">
+            <div class="">
+                <h2>
+                    Searching for deifferent one <br>
+                    - 다른 글자 찾기 -
+                </h2>
+                <div class="flex gameboard">
+                    <!-- stage01 : 8*4 -->
+                    <div id="dummyChars"></div>
+                </div>
+    
+                <div id="timer" class="timer">
+                    30s
+                </div>
+
+                <div id="playResult" class="play-result" style="display:none">
+                    <div class="play-result__inner">
+                        <div class="play-result__text" data-result>
+                            undefined
+                        </div> 
+                        <div class="play-result__score" style="display:none">
+                            You've got stage #n
+                        </div>
+                        <div class="play-result__buttons">
+                            <button type="button" class="btn btn--try">Try Again</button>
+                            <button type="button" class="btn btn--reset">Reset</button>
+                            <button type="button" class="btn btn--nextstage btn--primary">Next Stage</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="popup">
+            <div class="popup__inner">
+
+                <button type="button" class="btn btn--play btn--primary">Play!</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/stage02.js"></script>
+</body>
+</html>
