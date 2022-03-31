@@ -1,5 +1,5 @@
-let frontRow = 4;
-let frontCol = 5;
+let frontRow = 3;
+let frontCol = 4;
 
 let cntArr = frontRow * frontCol;
 
@@ -79,6 +79,20 @@ function showFrontBoard() {
 }
 
 // ...ing 
+// measure time
+const playResult = document.querySelector('#playResult');
+const playTimeResult = playResult.querySelector('.play-result__score');
+let initTime = 0;
+let stopwatch = true;
+
+function measuringTime() {
+    stopwatch = setInterval(function(){
+        initTime = initTime + 1;
+
+        playTimeResult.innerHTML = `<span>${initTime}</span>초 걸렸습니다!`;
+    },1000);
+}
+
 function playingGame() {
     const cardBtns = document.querySelectorAll('.btn-card');
     let clk = 0;
@@ -89,10 +103,9 @@ function playingGame() {
 
         cardBtns.forEach(ele => {
             chkarr.push(ele.dataset.open);
-            chkarr = chkarr.filter(ele => ele === true);
         });
         
-        console.log(chkarr);
+        return chkarr.filter(ele => ele === 'true');
     }
 
     cardBtns.forEach((ele,index) => {
@@ -125,17 +138,32 @@ function playingGame() {
                 } else {
                     statusBefore.removeAttribute('data-status');
                     ele.removeAttribute('data-status');
+
+                    statusBefore.disabled = true;
+                    ele.disabled = true;
                 }
             } else {
                 beforeCard = ele.textContent;
                 ele.dataset.status = 'before';
             }
 
-            chkResult();
+            // game set check
+            let openChk = chkResult();
+
+            if (openChk.length === cntArr) {
+                clearInterval(stopwatch);
+                showResult();
+            }
         }
 
         ele.addEventListener('click', cardBtnClickEvent);
     });
+}
+
+// show result
+function showResult() {
+    playResult.style.display = 'block';
+    playResult.dataset.result = 'set';
 }
 
 // timer
@@ -154,6 +182,7 @@ function timingFunc() {
 
                 showDefaultFront();
                 playingGame();
+                measuringTime();
             }
         
             frontTimer.textContent=`${setTime}s`;
@@ -170,3 +199,33 @@ function playClickEvent(event) {
 }
 
 playBtn.addEventListener('click', playClickEvent);
+
+// reset 버튼 동작
+const resetBtn = document.querySelector('.btn--reset');
+
+function resetClickEvent() {
+    location.reload();
+}
+
+resetBtn.addEventListener('click', resetClickEvent);
+
+// next stage
+const nextBtn = document.querySelector('.btn--nextstage');
+
+function nextStageEvent() {
+    // row & col 증가 및 front 배열 초기화
+    frontRow ++;
+    frontCol ++;
+    cntArr = frontRow * frontCol;
+    frontArr = [];
+
+    dummyCards.innerHTML = '';
+
+    showDefaultFront();
+
+    playResult.style.display = 'none';
+
+    playBtn.disabled = false;
+}
+
+nextBtn.addEventListener('click', nextStageEvent);

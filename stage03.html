@@ -21,23 +21,20 @@
                     짝 맞추기 겜
                 </h2>
                 <div class="flex gameboard">
-                    <!-- easy mode : 8*4 -->
+                    <!-- easy mode : 4*3 -->
                     <div id="dummyCards"></div>
                 </div>
     
                 <button type="button" class="btn btn--play btn--primary">Play!</button>
 
                 <div id="timer" class="timer">
-                    10s
+                    5s
                 </div>
 
-                <div id="playResult" class="play-result" style="display:none">
+                <div id="playResult" class="play-result" data-result style="display:none">
                     <div class="play-result__inner">
-                        <div class="play-result__text" data-result>
-                            undefined
-                        </div> 
-                        <div class="play-result__score" style="display:none">
-                            You've got stage #n
+                        <div class="play-result__score" style="font-size:24px;font-weight:500">
+                            00시간 00분 00초 걸렸습니다!
                         </div>
                         <div class="play-result__buttons">
                             <button type="button" class="btn btn--reset">Reset</button>

@@ -45,3 +45,5 @@ input:focus {outline:none;}
 /* stage03 */
 .btn-card {width:45px;height:45px;padding:3px;border-radius:5px;font-size:28px;line-height:45px;transition:all 0.3s ease-out;}
 .btn-card:hover {background-color:#ccc;}
+[disabled].btn-card {color:inherit;}
+[data-result="set"] .btn--nextstage {display:inline-block;}
